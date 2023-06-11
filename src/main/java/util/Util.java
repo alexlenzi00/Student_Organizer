@@ -75,7 +75,6 @@ public class Util {
 		return String.format("%s %02d %s %d", weekDay, day, month, year);
 	}
 
-	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {
 		App.init("./students.db", "./db.sql");
 		Rate r1 = new Rate(1, "Pacchetto 1h", LocalTime.of(1, 0, 0), 15.00);
