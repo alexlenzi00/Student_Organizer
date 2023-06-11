@@ -1,0 +1,314 @@
+* {
+	c1: #DB5F29;										/* ARANCIONE */
+	c2: #F0F0E4;										/* BIANCO */
+	c3: #69BDE1;										/* CELESTE */
+	c4: #2F528F;										/* BLU */
+	hint: rgba(47, 82, 143, 0.5);						/* BLU 50% */
+	hov: rgba(47, 82, 143, 0.3);						/* BLU 30% */
+	sel: rgba(219, 95, 41, 0.3);						/* ARANCIONE 30% */
+	guest: rgba(219, 95, 41, 0.8);						/* ARANCIONE 80% */
+	dis: rgba(47, 82, 143, 0.1);						/* BLU 10% */
+	par: rgba(47, 82, 143, 0.15);						/* BLU 15% */
+}
+#background {
+	-fx-background-color: c2;							/* SFONDO */
+}
+/* TUTTI I BOTTONI */
+.button {
+	-fx-background-color: c4;							/* SFONDO */
+	-fx-background-radius: 20px;						/* BOTTONE ARROTONDATO */
+	-fx-text-fill: white;								/* COLORE TESTO */
+	-fx-font-size: 20px;								/* DIMENSIONE FONT */
+	-fx-font-family: "Berlin Sans FB";					/* FONT */
+}
+.button:hover {
+	-fx-background-color: c1;							/* SFONDO */
+}
+#B2 {
+	-fx-font-family: "Berlin Sans FB";					/* FONT */
+	-fx-font-size: 40px;								/* DIMENSIONE FONT */
+	-fx-text-fill: c4;									/* COLORE TESTO */
+	-fx-background-color: transparent;					/* SFONDO */
+}
+#B2:hover {
+	-fx-text-fill: c2;									/* COLORE TESTO */
+	-fx-background-color: c1;							/* SFONDO */
+}
+/* BOTTONI SENZA SFONDO */
+#BTN2 {
+	-fx-text-fill: c4;									/* COLORE TESTO */
+	-fx-background-color: transparent;					/* SFONDO */
+}
+#BTN2:hover {
+	-fx-text-fill: c1;									/* COLORE TESTO */
+}
+/* CASELLE DI TESTO */
+#login.text-field {
+	-fx-background-color: transparent;					/* SFONDO */
+	-fx-text-fill: c4;									/* COLORE TESTO */
+	-fx-border-radius: 20px;							/* TEXT FIELD ARROTONDATO */
+	-fx-border-width: 1.5px;							/* SPESSORE BORDO */
+	-fx-prompt-text-fill: hint;							/* COLORE HINT */
+	-fx-border-color: c4;								/* COLORE BORDO */
+	-fx-font-size: 20px;								/* DIMENSIONE FONT */
+	-fx-font-family: "Berlin Sans FB";					/* FONT */
+}
+#login {
+	-fx-padding: 0 5 0 20;								/* SPAZIATURA TESTO INTERNO TF LOGIN */
+}
+#T1, #T2, #T3 {
+	-fx-font-size: 40px;								/* DIMENSIONE FONT */
+	-fx-font-family: "Berlin Sans FB";					/* FONT */
+	-fx-text-fill: c4;									/* COLORE TESTO */
+}
+#T2 {
+	-fx-font-size: 25px;								/* DIMENSIONE FONT */
+}
+#T3 {
+	-fx-font-size: 18px;								/* DIMENSIONE FONT */
+}
+/* ALERT */
+.dialog-pane {
+	-fx-background-color: c2;							/* SFONDO ALERT 'SOTTO' */
+	-fx-font-size: 20px;								/* DIMENSIONE FONT */
+	-fx-text-fill: black;								/* COLORE TESTO 'SOTTO' */
+}
+.dialog-pane:header .header-panel{
+	-fx-background-color: c4;							/* SFONDO ALERT 'SOPRA' */
+}
+.dialog-pane .title-bar {
+	-fx-background-color: c4;							/* SFONDO ALERT 'SOPRA' 2 */
+}
+.dialog-pane:header .header-panel .label{
+	-fx-text-fill: white;								/* COLORE TESTO 'SOPRA' */
+}
+/* SCHEDE MAIN */
+.tab {
+	-fx-background-color: c4;							/* COLORE TAB NON SELEZIONATA */
+	-fx-background-insets: 0 10 0 0;					/* DISTANZA BOTTONI TRA LORO E CONTENUTO */
+	-fx-focus-color: transparent;						/* COLORE INTORNO */
+	-fx-faint-focus-color: transparent;					/* COLORE INTORNO */
+}
+.tab .tab-label {
+	-fx-font-size: 25px;								/* DIMENSIONE FONT */
+	-fx-font-family: "Berlin Sans FB Demi";				/* FONT */
+	-fx-text-fill: white;								/* COLORE TESTO TAB NON SELEZIONATA*/
+}
+.tab:selected {
+	-fx-background-color: c1;							/* SFONDO */
+}
+.tab-pane .tab-header-area .tab-header-background {
+	-fx-background-color: c4;							/* SFONDO DIETRO I TAB */
+}
+/* RADIO BUTTON */
+.radio-button {
+	-fx-font-family: "Berlin Sans FB";					/* FONT */
+	-fx-font-size: 20px;								/* DIMENSIONE FONT */
+	-fx-text-fill: c4;									/* COLORE TESTO TAB NON SELEZIONATA*/
+}
+.radio-button .radio {
+	-fx-border-width: 2px;								/* SPESSORE BORDO */
+	-fx-border-color: c4;								/* COLORE BORDO */
+	-fx-background-color: transparent;					/* SFONDO */
+	-fx-border-radius: 15px;							/* RADIO BUTTON ARROTONDATO */
+	-fx-padding: 4px;									/* PADDING PER DETERMINARE LA DIMENSIONE */
+}
+.radio-button:selected .radio {
+	-fx-background-color: c4;							/* SFONDO */
+}
+.radio-button .dot {
+	-fx-background-radius: 15px;						/* PUNTO ARROTONDATO  */
+	-fx-padding: 5px;									/* PADDING PER DETERMINARE LA DIMENSIONE */
+}
+.radio-button:selected .dot {
+	-fx-background-color: transparent;					/* NASCONDI IL PUNTO */
+}
+/* COMBO BOX */
+.combo-box {
+	-fx-background-color: transparent;					/* SFONDO */
+	-fx-border-width: 1.5px;							/* SPESSORE BORDO */
+	-fx-border-color: c4;								/* COLORE BORDO */
+	-fx-border-radius: 15px;							/* BORDO TONDO */
+}
+.combo-box .text-field, .combo-box .arrow-button {
+	-fx-background-color: c2;							/* SFONDO */
+	-fx-faint-focus-color: transparent;					/* COLORE INTORNO */
+	-fx-focus-color: transparent;						/* COLORE INTORNO */
+	-fx-text-fill: c4;									/* COLORE TESTO */
+	-fx-prompt-text-fill: hint;							/* COLORE HINT */
+	-fx-font-size: 15px;								/* DIMENSIONE FONT */
+	-fx-font-family: "Berlin Sans FB";					/* FONT */
+}
+.combo-box .list-view {
+	-fx-background-color: c2;							/* SFONDO */
+}
+.combo-box .list-cell {
+	-fx-background-color: transparent;					/* SFONDO */
+	-fx-text-fill: c4;									/* COLORE TESTO */
+	-fx-font-size: 15px;								/* DIMENSIONE FONT */
+	-fx-font-family: "Berlin Sans FB";					/* FONT */
+}
+.combo-box .list-cell:selected {
+	-fx-background-radius: 15px;						/* SFONDO ARROTONDATO */
+	-fx-background-color: c2;							/* SFONDO */
+	-fx-border-radius: 15px;							/* FIX BORDI */
+}
+.combo-box .list-view .list-cell:selected {
+	-fx-background-radius: 0px;							/* NO SFONDO ARROTONDATO */
+	-fx-background-color: sel;							/* SFONDO */
+}
+.combo-box .list-cell:hover {
+	-fx-background-radius: 0px;							/* NO SFONDO ARROTONDATO */
+	-fx-background-color: hov;							/* SFONDO */
+}
+.combo-box .arrow, .combo-box .arrow-button {
+	-fx-background-radius: 15px;						/* SFONDO ARROTONDATO */
+}
+#CB2 .text-field {
+	-fx-font-size: 20px;								/* DIMENSIONE FONT */
+}
+#CB2 .arrow, #CB2 .arrow-button {
+	-fx-background-color: transparent;					/* SFONDO */
+	-fx-padding: 0px;									/* DIMENSIONE FRECCIA COMBOBOX */
+	-fx-border: 0px;									/* SENZA BORDI */
+}
+/* LIST VIEW */
+.list-view {
+	-fx-border-color: transparent;						/* COLORE BORDO */
+	-fx-border-width: 0px;								/* SPESSORE BORDO */
+	-fx-faint-focus-color: transparent;					/* COLORE INTORNO */
+	-fx-focus-color: transparent;						/* COLORE INTORNO */
+}
+.list-cell {
+	-fx-text-fill: c4;									/* COLORE TESTO */
+	-fx-font-size: 20px;								/* DIMENSIONE FONT */
+	-fx-font-family: "Berlin Sans FB";					/* FONT */
+}
+.list-cell:odd {
+	-fx-background-color: dis;							/* SFONDO */
+}
+.list-cell:even {
+	-fx-background-color: par;							/* SFONDO */
+}
+.list-cell:hover {
+	-fx-background-color: hov;							/* SFONDO */
+}
+.list-cell:selected {
+	-fx-background-color: sel;							/* SFONDO */
+}
+.list-cell:empty {
+	-fx-background-color: transparent;					/* SFONDO RIGHE VUOTE */
+	-fx-border-color: c2;								/* COLORE BORDO RIGHE VUOTE */
+}
+/* DATE PICKER */
+.date-picker {
+	-fx-faint-focus-color: transparent;					/* COLORE INTORNO */
+	-fx-focus-color: transparent;						/* COLORE INTORNO */
+	-fx-font-size: 15px;								/* DIMENSIONE FONT */
+	-fx-border-width: 2px;								/* SPESSORE BORDO */
+	-fx-border-color: c4;								/* COLORE BORDO */
+}
+.date-picker > .text-field {
+	-fx-text-fill: c4;									/* COLORE TESTO */
+	-fx-font-size: 20px;								/* DIMENSIONE FONT */
+}
+.date-picker > .arrow-button .arrow {
+	-fx-background-color: c2;							/* COLORE TESTO */
+}
+.date-picker > .arrow-button:hover .arrow {
+	-fx-background-color: c4;							/* COLORE TESTO */
+}
+.date-picker > .arrow-button {
+	-fx-background-color: c4;							/* SFONDO */
+	-fx-font-size: 20px;								/* DIMENSIONE FONT */
+	-fx-border-radius: 0px;								/* COLORE BORDO */
+}
+.date-picker > .arrow-button:hover {
+	-fx-background-color: c2;							/* SFONDO */
+}
+.calendar-grid {
+	-fx-background-color: c2;							/* SFONDO GRIGLIA */
+}
+.date-picker .cell {
+	-fx-background-color: c2;							/* SFONDO CELLE */
+	-fx-border-width: 0 2px 2px 0;						/* SPESSORE BORDO */
+	-fx-border-color: c2;								/* SPESSORE BORDO */
+	-fx-text-fill: c4;									/* COLORE TESTO */
+}
+.date-picker .cell:hover {
+	-fx-background-color: hint;							/* SFONDO CELLE */
+	-fx-text-fill: c2;									/* COLORE TESTO */
+}
+.date-picker .cell:focused {
+	-fx-background-color: sel;							/* SFONDO CELLE */
+	-fx-text-fill: black;								/* COLORE TESTO */
+}
+.date-picker-popup .spinner .button {
+	-fx-background-color: c4;							/* SFONDO BOTTONI */
+	-fx-border-radius: 0px;								/* BORDO NON ARROTONDATO */
+	-fx-background-radius: 0px;							/* SFONDO NON ARROTONDATO */
+}
+.date-picker-popup .spinner .button:hover {
+	-fx-background-color: guest;						/* SFONDO BOTTONI ON HOVER */
+}
+.date-picker-popup .spinner .button .left-arrow,
+.date-picker-popup .spinner .button .right-arrow {
+	-fx-background-color: c2;							/* COLORE TESTO BOTTONI SPINNER */
+}
+/* CHECK BOX */
+.check-box .box {
+	-fx-background-color: c2;							/* COLORE SFONDO */
+	-fx-border-color: c4;								/* COLORE BORDO */
+	-fx-border-width: 2px;								/* SPESSORE BORDO */
+}
+.check-box:selected .mark {
+	-fx-background-color: c2;							/* COLORE TIK INTERNO */
+}
+.check-box:selected .box {
+	-fx-background-color: c4;							/* COLORE SFONDO QUANDO SELEZIONATA */
+}
+.check-box {
+	-fx-text-fill: c4;									/* COLORE TESTO */
+	-fx-font-size: 18px;								/* DIMENSIONE FONT */
+	-fx-font-family: "Berlin Sans FB";					/* FONT */
+}
+/* TEXT AREA */
+.text-area {
+	-fx-background-color: transparent;					/* SFONDO */
+	-fx-text-fill: c4;									/* COLORE TESTO */
+	-fx-background-radius: 20px;						/* TEXT AREA ARROTONDATO */
+	-fx-border-radius: 20px;							/* TEXT AREA ARROTONDATO */
+	-fx-border-color: c4;								/* COLORE BORDO */
+	-fx-border-width: 1.5px;							/* SPESSORE BORDO */
+	-fx-prompt-text-fill: hint;							/* COLORE HINT */
+	-fx-font-size: 20px;								/* DIMENSIONE FONT */
+	-fx-font-family: "Berlin Sans FB";					/* FONT */
+	-fx-padding: 5px;									/* PADDINF TEXT AREA */
+}
+.text-area .content {
+	-fx-background-color: transparent;					/* SFONDO */
+}
+.text-area .scroll-pane {
+	-fx-background-color: transparent;					/* SFONDO */
+}
+.text-area .scroll-pane .viewport{
+	-fx-background-color: transparent;					/* SFONDO */
+}
+.text-area .scroll-pane .content{
+	-fx-background-color: transparent;					/* SFONDO */
+}
+/* CALENDAR */
+#calendarRow {
+	-fx-font-size: 15px;								/* DIMENSIONE FONT */
+	-fx-font-family: "Berlin Sans FB";					/* FONT */
+	-fx-text-fill: hint;								/* COLORE TESTO */
+	-fx-border-width: 0 0 1px 0;						/* DIMENSIONE BORDO */
+	-fx-border-color: hint;								/* COLORE BORDO */
+}
+#calendarCol {
+	-fx-font-size: 25px;								/* DIMENSIONE FONT */
+	-fx-font-family: "Berlin Sans FB";					/* FONT */
+	-fx-text-fill: c4;									/* COLORE TESTO */
+	-fx-border-width: 0 1px 0 0;						/* DIMENSIONE BORDO */
+	-fx-border-color: hint;								/* COLORE BORDO */
+}
