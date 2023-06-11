@@ -84,7 +84,7 @@ public class Util {
 		r2.save();
 		r3.save();
 		Student s1 = new Student(1, "Alex", "Lenzi", "");
-		Student s2 = new Student(2, "Roberto", "Reggiani", "");
+		Student s2 = new Student(2, "Chiara", "Logli", "");
 		s1.save();
 		s2.save();
 		Subject sj1 = new Subject(1, "Fondamenti Informatica 1");
