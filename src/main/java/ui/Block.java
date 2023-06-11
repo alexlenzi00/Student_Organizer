@@ -14,7 +14,7 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class Block extends Label {
-	private State2 state;
+	private State state;
 	private double minutes;
 
 	private Block() {
@@ -28,7 +28,7 @@ public class Block extends Label {
 	public Block(Lesson lesson, double x, double y) {
 		this();
 		setText(lesson.toString());
-		State2 state = new Scheduled();
+		State state = new Scheduled();
 		LocalDate lessonDay = lesson.getDay();
 		LocalDate now = LocalDate.now();
 		LocalTime endHour = lesson.getEndHour();
@@ -52,7 +52,7 @@ public class Block extends Label {
 		setMinutes(minutes);
 	}
 
-	public State2 getState() {
+	public State getState() {
 		return state;
 	}
 
@@ -64,7 +64,7 @@ public class Block extends Label {
 		return minutes;
 	}
 
-	public void setState(State2 state) {
+	public void setState(State state) {
 		this.state = state;
 	}
 
