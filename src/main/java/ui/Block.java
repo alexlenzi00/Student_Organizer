@@ -6,9 +6,15 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.text.TextAlignment;
+import model.Lesson;
+import model.Link;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.ArrayList;
 
 public class Block extends Label {
-	private State state;
+	private State2 state;
 	private double minutes;
 
 	private Block() {
@@ -19,20 +25,34 @@ public class Block extends Label {
 		super.setWrapText(true);
 	}
 
-	public Block(String text, State state, double x, double y) {
+	public Block(Lesson lesson, double x, double y) {
 		this();
-		setText(text);
+		setText(lesson.toString());
+		State2 state = new Scheduled();
+		LocalDate lessonDay = lesson.getDay();
+		LocalDate now = LocalDate.now();
+		LocalTime endHour = lesson.getEndHour();
+		if (lessonDay.isBefore(now) || (lessonDay.isEqual(now) && endHour.isBefore(LocalTime.now()))) {
+			state = new ToPay();
+			ArrayList<Link> links = Link.loadAll();
+			for (Link link : links) {
+				if (link.getIdLesson() == lesson.getId()) {
+					state = new Completed();
+					break;
+				}
+			}
+		}
 		setState(state);
-		super.setBackground(new Background(new BackgroundFill(state.getColor(), null, null)));
+		super.setBackground(new Background(new BackgroundFill(getState().getColor(), null, null)));
 		setPosition(x, y);
 	}
 
-	public Block(String text, State state, double x, double y, double minutes) {
-		this(text, state, x, y);
+	public Block(Lesson lesson, double x, double y, double minutes) {
+		this(lesson, x, y);
 		setMinutes(minutes);
 	}
 
-	public State getState() {
+	public State2 getState() {
 		return state;
 	}
 
@@ -44,7 +64,7 @@ public class Block extends Label {
 		return minutes;
 	}
 
-	public void setState(State state) {
+	public void setState(State2 state) {
 		this.state = state;
 	}
 

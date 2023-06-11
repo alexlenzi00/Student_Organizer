@@ -7,11 +7,9 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.TextAlignment;
 import model.Lesson;
-import model.Link;
 import util.Util;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.ArrayList;
 
 import static java.time.temporal.ChronoUnit.DAYS;
@@ -123,25 +121,9 @@ public class Calendar extends ScreenUI {
 			return lesson.getDay().isBefore(calendarMonday) || lesson.getDay().isAfter(calendarSunday);
 		});
 		for (Lesson lesson : lessons) {
-			String text = lesson.toString();
-			State state = State.LEZIONE_PROGRAMMATA;
-			LocalDate lessonDay = lesson.getDay();
-			LocalDate now = LocalDate.now();
-			LocalTime endHour = lesson.getEndHour();
-			if (lessonDay.isBefore(now) || (lessonDay.isEqual(now) && endHour.isBefore(LocalTime.now()))) {
-				state = State.LEZIONE_DA_PAGARE;
-				ArrayList<Link> links = Link.loadAll();
-				for (Link link : links) {
-					if (link.getIdLesson() == lesson.getIdLesson()) {
-						state = State.LEZIONE_COMPLETATA;
-						break;
-					}
-				}
-			}
 			double x = getLabelX(calendarMonday.until(lesson.getDay()).getDays());
 			double y = getLabelY(lesson.getStartHour().getHour() - 7 + lesson.getStartHour().getMinute() / 60.0);
-			LocalTime duration = lesson.getDuration();
-			Block block = new Block(text, state, x, y, duration.toSecondOfDay() / 60.0);
+			Block block = new Block(lesson, x, y, lesson.getDuration().toSecondOfDay() / 60.0);
 			block.setOnMouseClicked(mouseEvent -> {
 				LessonSummary lessonSummary = new LessonSummary(App.getStage(), lesson);
 				lessonSummary.show();
