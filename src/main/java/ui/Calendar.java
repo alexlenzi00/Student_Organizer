@@ -162,7 +162,7 @@ public class Calendar extends ScreenUI {
 			blocks.computeIfAbsent(date, k -> new ArrayList<>());
 			Block block = new Block(text, state, x, y, duration.toSecondOfDay() / 60.0);
 			block.setOnMouseClicked(mouseEvent -> {
-				LessonSummary lessonSummary = new LessonSummary(App.stage, lesson);
+				LessonSummary lessonSummary = new LessonSummary(App.getStage(), lesson);
 				lessonSummary.show();
 			});
 			blocks.get(lesson.getDay()).add(block);
