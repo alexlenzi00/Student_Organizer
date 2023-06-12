@@ -51,10 +51,6 @@ public class Link extends Savable {
 		return String.format("%d - lezione con %s del %s numero %d", idLink, student, lesson.getDay(), lesson.getLessonN());
 	}
 
-	@Override
-	public int getId() {
-		return getIdLink();
-	}
 	@SuppressWarnings("unchecked")
 	public static <T extends Savable> T load(int id) {
 		return (T) Savable.load(id);

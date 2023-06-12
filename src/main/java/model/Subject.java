@@ -35,11 +35,6 @@ public class Subject extends Savable {
 		return name;
 	}
 
-	@Override
-	public int getId() {
-		return getIdSubject();
-	}
-
 	@SuppressWarnings("unchecked")
 	public static <T extends Savable> T load(int id) {
 		return (T) Savable.load(id);
@@ -48,4 +43,5 @@ public class Subject extends Savable {
 	@SuppressWarnings("unchecked")
 	public static <T extends Savable> ArrayList<T> loadAll() {
 		return (ArrayList<T>) Savable.load();
-	}}
+	}
+}

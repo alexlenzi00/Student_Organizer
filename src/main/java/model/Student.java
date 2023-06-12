@@ -68,10 +68,6 @@ public class Student extends Savable implements Comparable<Student> {
 		return tmp != 0 ? tmp : surname.compareTo(o.getSurname());
 	}
 
-	@Override
-	public int getId() {
-		return getIdStudent();
-	}
 
 	@SuppressWarnings("unchecked")
 	public static <T extends Savable> T load(int id) {

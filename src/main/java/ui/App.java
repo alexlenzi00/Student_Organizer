@@ -52,8 +52,8 @@ public class App extends Application {
 			stage.setResizable(false);
 			stage.setX((Screen.getPrimary().getBounds().getWidth() - scene.getWidth()) / 2);
 			stage.setY((Screen.getPrimary().getBounds().getHeight() - scene.getHeight()) / 4.5);
-			getStage().setScene(scene);
-			getStage().show();
+			stage.setScene(scene);
+			stage.show();
 		}
 	}
 

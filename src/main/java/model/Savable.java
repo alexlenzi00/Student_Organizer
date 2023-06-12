@@ -5,9 +5,13 @@ import db.Saver;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 
-public abstract class Savable implements Identifiable {
+public class Savable implements Identifiable {
+	protected Savable() {
+	}
+
 	public boolean save() {
 		return Saver.save(this);
 	}
@@ -38,5 +42,15 @@ public abstract class Savable implements Identifiable {
 	}
 
 	@Override
-	public abstract int getId();
+	public int getId() {
+		int ris = -1;
+		try {
+			String name = this.getClass().getSimpleName();
+			Method m = this.getClass().getDeclaredMethod("getId" + name);
+			ris = (int) m.invoke(this);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return ris;
+	}
 }

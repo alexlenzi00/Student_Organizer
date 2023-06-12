@@ -58,10 +58,6 @@ public class Rate extends Savable {
 		return String.format("Tariffa \"%s\" della durata di %s", name, Util.getDurationString(duration));
 	}
 
-	@Override
-	public int getId() {
-		return getIdRate();
-	}
 
 	@SuppressWarnings("unchecked")
 	public static <T extends Savable> T load(int id) {
