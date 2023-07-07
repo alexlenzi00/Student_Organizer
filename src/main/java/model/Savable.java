@@ -1,44 +1,22 @@
 package model;
 
-import db.Loader;
-import db.Saver;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import ui.App;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 
-public class Savable implements Identifiable {
-	protected Savable() {
-	}
-
+public abstract class Savable implements Identifiable {
 	public boolean save() {
-		return Saver.save(this);
+		return App.save(this);
 	}
 
-	private static <T extends Savable> @Nullable T load(String tableName, int id) {
-		T ris = null;
-		ArrayList<T> list = loadAll(tableName);
-		for (T savable : list) {
-			if (savable.getId() == id) {
-				ris = savable;
-				break;
-			}
-		}
-		return ris;
+	public static <T extends Savable> @NotNull ArrayList<T> loadAll(String tableName) {
+		return App.loadAll(tableName);
 	}
 
-	private static <T extends Savable> @NotNull ArrayList<T> loadAll(String tableName) {
-		return Loader.load(tableName);
-	}
-
-	protected static Object load(Integer @NotNull ... optionalId) {
-		String tableName = Thread.currentThread().getStackTrace()[2].getClassName();
-		if (optionalId.length == 0) {
-			return loadAll(tableName);
-		} else {
-			return load(tableName, optionalId[0]);
-		}
+	public static <T extends Savable> T load(String tableName, int id) {
+		return App.load(tableName, id);
 	}
 
 	@Override

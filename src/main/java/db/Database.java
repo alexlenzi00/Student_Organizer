@@ -7,6 +7,8 @@ import java.sql.*;
 
 public abstract class Database {
 	protected static Connection connection;
+	protected Saver saver;
+	protected Loader loader;
 
 	protected Connection getConnection() {
 		try {
@@ -17,6 +19,22 @@ public abstract class Database {
 			e.printStackTrace();
 		}
 		return connection;
+	}
+
+	public Saver getSaver() {
+		return saver;
+	}
+
+	public Loader getLoader() {
+		return loader;
+	}
+
+	protected void setSaver(Saver saver) {
+		this.saver = saver;
+	}
+
+	protected void setLoader(Loader loader) {
+		this.loader = loader;
 	}
 
 	protected abstract String getUrl();
@@ -55,10 +73,12 @@ public abstract class Database {
 	}
 
 	public boolean executeUpdate(String query) {
-		boolean ris = getConnection() != null;
-		if (ris) {
+		boolean ris = true;
+		Connection c;
+		if ((c = getConnection()) != null) {
 			try {
-				Statement statement = getConnection().createStatement();
+				Statement statement = c.createStatement();
+				c.createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_UPDATABLE);
 				statement.executeUpdate(query);
 			} catch (SQLException ignored) {
 				ris = false;

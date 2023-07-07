@@ -64,13 +64,11 @@ public class Payment extends Savable {
 		return String.format("%d - Pagamento di %.2f euro da %s di \"'%s\" in data %s", getIdPayment(), rate.getPrice(), student, rate.getName(), Util.getDateString(getDay(), "/"));
 	}
 
-	@SuppressWarnings("unchecked")
 	public static <T extends Savable> T load(int id) {
-		return (T) Savable.load(id);
+		return load("Payment", id);
 	}
 
-	@SuppressWarnings("unchecked")
 	public static <T extends Savable> ArrayList<T> loadAll() {
-		return (ArrayList<T>) Savable.load();
+		return loadAll("Payment");
 	}
 }

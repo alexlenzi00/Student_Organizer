@@ -35,13 +35,11 @@ public class Subject extends Savable {
 		return name;
 	}
 
-	@SuppressWarnings("unchecked")
 	public static <T extends Savable> T load(int id) {
-		return (T) Savable.load(id);
+		return load("Subject", id);
 	}
 
-	@SuppressWarnings("unchecked")
 	public static <T extends Savable> ArrayList<T> loadAll() {
-		return (ArrayList<T>) Savable.load();
+		return loadAll("Subject");
 	}
 }

@@ -68,14 +68,11 @@ public class Student extends Savable implements Comparable<Student> {
 		return tmp != 0 ? tmp : surname.compareTo(o.getSurname());
 	}
 
-
-	@SuppressWarnings("unchecked")
 	public static <T extends Savable> T load(int id) {
-		return (T) Savable.load(id);
+		return load("Student", id);
 	}
 
-	@SuppressWarnings("unchecked")
 	public static <T extends Savable> ArrayList<T> loadAll() {
-		return (ArrayList<T>) Savable.load();
+		return loadAll("Student");
 	}
 }

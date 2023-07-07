@@ -51,13 +51,11 @@ public class Link extends Savable {
 		return String.format("%d - lezione con %s del %s numero %d", idLink, student, lesson.getDay(), lesson.getLessonN());
 	}
 
-	@SuppressWarnings("unchecked")
 	public static <T extends Savable> T load(int id) {
-		return (T) Savable.load(id);
+		return load("Link", id);
 	}
 
-	@SuppressWarnings("unchecked")
 	public static <T extends Savable> ArrayList<T> loadAll() {
-		return (ArrayList<T>) Savable.load();
+		return loadAll("Link");
 	}
 }

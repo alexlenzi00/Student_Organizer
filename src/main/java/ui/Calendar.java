@@ -16,7 +16,7 @@ import static java.time.temporal.ChronoUnit.DAYS;
 import static java.time.temporal.ChronoUnit.WEEKS;
 
 @SuppressWarnings("CanBeFinal")
-public class Calendar extends ScreenUI {
+public class Calendar extends UpdatableScreen {
 	protected LocalDate actualMonday;
 	protected LocalDate calendarMonday;
 	protected int weekOffset;
@@ -24,7 +24,8 @@ public class Calendar extends ScreenUI {
 	protected ArrayList<Label> days;
 
 	public Calendar() {
-		title = "Student Organizer - Calendar";
+		super.setTitle("Student Organizer - Calendar");
+		super.setName("Calendar");
 		LocalDate now = LocalDate.now();
 		calendarMonday = actualMonday = now.minus(now.getDayOfWeek().getValue() - 1, DAYS);
 		weekOffset = 0;
@@ -95,8 +96,7 @@ public class Calendar extends ScreenUI {
 		btWeekReset.setOnAction(actionEvent -> reset());
 		root.getChildren().add(btWeekReset);
 		update();
-		setTitle("Student Organizer - Calendar");
-		setScene(new Scene(root, root.getPrefWidth(), root.getPrefHeight()));
+		super.setScene(new Scene(root, root.getPrefWidth(), root.getPrefHeight()));
 	}
 
 	private double getLabelX(double col) {

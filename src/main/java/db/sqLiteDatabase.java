@@ -1,10 +1,12 @@
 package db;
 
-public class sqlLiteDatabase extends Database {
+public class sqLiteDatabase extends Database {
 	private final String databasePath;
 
-	public sqlLiteDatabase(String databasePath) {
+	public sqLiteDatabase(String databasePath) {
 		this.databasePath = databasePath;
+		setLoader(new SQLiteLoader());
+		setSaver(new SQLiteSaver());
 	}
 
 	@Override

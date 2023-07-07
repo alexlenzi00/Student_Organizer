@@ -132,13 +132,11 @@ public class Lesson extends Savable implements Comparable<Lesson> {
 		return String.format("%s\n%s", student, subject);
 	}
 
-	@SuppressWarnings("unchecked")
 	public static <T extends Savable> T load(int id) {
-		return (T) Savable.load(id);
+		return load("Lesson", id);
 	}
 
-	@SuppressWarnings("unchecked")
 	public static <T extends Savable> ArrayList<T> loadAll() {
-		return (ArrayList<T>) Savable.load();
+		return loadAll("Lesson");
 	}
 }
